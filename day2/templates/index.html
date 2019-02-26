@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form method="post" action="/poem">
+        <p>Plural noun<br><input type="text" name="noun1"></p>
+        <p>Singular noun<br><input type="text" name="noun2"></p>
+        <p>Verb (past tense)<br><input type="text" name="verb"></p>
+        <p>Noun<br><input type="text" name="noun3"></p>
+        <input type="submit">
+        </form>
+    <table width="500" >
+        {% for i in attr %}
+        <tr>
+            <td>{{ i['noun1'] }}</td>
+            <td>{{ i['noun2'] }}</td>
+            <td>{{ i['noun3'] }}</td>
+            <td>{{ i['verb']}}</td>
+            <td><a href="/delete/{{ i['_id']}}">删除</a></td>
+        </tr>
+        {% end %}
+    </table>
+</body>
+
+</html>
